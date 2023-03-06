@@ -94,14 +94,15 @@ class _MainControlState extends State<MainControl> {
               child: Column(
               children: [
                 ColorPicker(
-                  showLabel: false,
+                  labelTypes: const [],
+                  enableAlpha: false,
                   colorPickerWidth: MediaQuery.of(context).size.width * 0.6,
                   pickerColor: pickerColor!,
                   onColorChanged: changeColor,
                 ),
                 Expanded(
                   child: GridView.count(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     primary: false,
                     padding: EdgeInsets.all(
                         MediaQuery.of(context).size.height * 0.05),

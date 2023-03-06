@@ -11,6 +11,12 @@ CRGB leds[NUM_LEDS];
 #define WIFI_RETRY_DELAY 500
 #define MAX_WIFI_INIT_RETRY 50
 
+// Set Static IP address
+IPAddress local_IP(192, 168, 0, 73);
+// Set Gateway IP address
+IPAddress gateway(192, 168, 0, 1);
+IPAddress subnet(255, 255, 255, 0);
+
 struct Led {
   uint8_t redValue;
   uint8_t greenValue;
@@ -57,7 +63,10 @@ int init_wifi() {
 
   Serial.println("Connecting to WiFi AP..........");
 
-  WiFi.mode(WIFI_STA);
+  //WiFi.mode(WIFI_STA);
+  if (!WiFi.config(local_IP, gateway, subnet)) {
+    Serial.println("STA Failed to configure");
+  }
   WiFi.begin(wifi_ssid, wifi_passwd);
   // check the status of WiFi connection to be WL_CONNECTED
   while ((WiFi.status() != WL_CONNECTED) && (retries < MAX_WIFI_INIT_RETRY)) {

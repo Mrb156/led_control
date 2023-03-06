@@ -52,7 +52,7 @@ class _MainState extends State<Main> {
             _selectedIndex = index;
           });
         },
-        items: [
+        items: const [
           BottomNavigationBarItem(icon: Icon(Icons.lightbulb), label: 'Fő'),
           BottomNavigationBarItem(icon: Icon(Icons.lightbulb), label: 'Fal'),
           BottomNavigationBarItem(

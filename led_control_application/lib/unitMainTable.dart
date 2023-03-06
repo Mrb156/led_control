@@ -94,14 +94,14 @@ class _unitMainTableState extends State<unitMainTable> {
               child: Column(
               children: [
                 ColorPicker(
-                  showLabel: false,
+                  labelTypes: const [],
                   colorPickerWidth: MediaQuery.of(context).size.width * 0.6,
                   pickerColor: pickerColor!,
                   onColorChanged: changeColor,
                 ),
                 Expanded(
                   child: GridView.count(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     primary: false,
                     padding: EdgeInsets.all(
                         MediaQuery.of(context).size.height * 0.05),
